@@ -188,7 +188,7 @@ class Discriminator(nn.Module):
 
 class GAN(object):
     """
-    GAN model for placenet
+    GAN model for placement
     """
     
     def __init__(self, opt):
