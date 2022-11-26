@@ -10,6 +10,13 @@ from loader import dataset_dict, get_loader
 
 
 def img_pad(img, padding, img_type="RGB"):
+    """
+    image padding
+    :param img:
+    :param padding:
+    :param img_type:
+    :return:
+    """
     w, h = img.size[0], img.size[1]
     img_template = Image.new(img_type, (w + 2 * padding, h + 2 * padding))
     img_template.paste(img, (padding, padding))
@@ -17,12 +24,26 @@ def img_pad(img, padding, img_type="RGB"):
 
 
 def img_crop(img, padding):
+    """
+    image crop
+    :param img:
+    :param padding:
+    :return:
+    """
     w, h = img.size[0], img.size[1]
     img_crop = img.crop((padding, padding, w - padding, h - padding))
     return img_crop
 
 
 def gen_composite_image(bg_img, fg_img, fg_msk, locations):
+    """
+    generate composite image
+    :param bg_img:
+    :param fg_img:
+    :param fg_msk:
+    :param locations:
+    :return:
+    """
     bg_w, bg_h, fg_w, fg_h = bg_img.size[0], bg_img.size[1], fg_img.size[0], fg_img.size[1]
     padding = min(bg_w, bg_h)
     xc, yc = bg_w * locations[0], bg_h * locations[1]
@@ -62,10 +83,31 @@ def gen_composite_image(bg_img, fg_img, fg_msk, locations):
 
 
 def infer(eval_loader, opt, model=None, repeat=1):
+    """
+    inference
+    :param eval_loader:
+    :param opt:
+    :param model:
+    :param repeat:
+    :return:
+    """
     def csv_title():
+        """
+        return csv_title
+        :return:
+        """
         return 'annID,scID,bbox,catnm,label,img_path,msk_path'
     
     def csv_str(annid, scid, gen_comp_bbox, catnm, gen_file_name):
+        """
+        format csv_str
+        :param annid:
+        :param scid:
+        :param gen_comp_bbox:
+        :param catnm:
+        :param gen_file_name:
+        :return:
+        """
         return '{},{},"{}",{},-1,images/{}.jpg,masks/{}.png'.format(annid, scid, gen_comp_bbox, catnm, gen_file_name,
                                                                     gen_file_name)
     
