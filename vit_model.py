@@ -19,7 +19,7 @@ def drop_path(x, drop_prob: float = 0., training: bool = False):
     随机深度的Drop方法
     
     Drop paths (Stochastic Depth) per sample (when applied in main path of residual blocks).
-    This is the same as the DropConnect impl I created for EfficientNet, etc networks, however,
+    This is the same as the DropConnect impl I created for EfficientNet, etc. networks, however,
     the original name is misleading as 'Drop Connect' is a different form of dropout in a separate paper...
     See discussion: https://github.com/tensorflow/tpu/issues/494#issuecomment-532968956 ... I've opted for
     changing the layer and argument names to 'drop path' rather than mix DropConnect as a layer name and use
@@ -393,7 +393,7 @@ def vit_base_patch16_224(num_classes: int = 1000):
     ViT-Base model (ViT-B/16) from original paper (https://arxiv.org/abs/2010.11929).
     ImageNet-1k weights @ 224x224, source https://github.com/google-research/vision_transformer.
     weights ported from official Google JAX impl:
-    链接: https://pan.baidu.com/s/1zqb08naP0RPqqfSXfkB2EA  密码: eu9f
+    链接: https://pan.baidu.com/s/1zqb08naP0RPqqfSXfkB2EA  密码: eu 9 f
     """
     model = VisionTransformer(img_size=224,
                               patch_size=16,
@@ -673,219 +673,217 @@ def summary_4_vit_for_image_composite():
     """
     vitps for image composite_patch64_256()
     ----------------------------------------------------------------
-        Layer (type)               Output Shape         Param #
+            Layer (type)               Output Shape         Param #
     ================================================================
-                Conv2d-1             [1, 768, 4, 4]       9,437,952
-              Identity-2               [1, 16, 768]               0
-            PatchEmbed-3               [1, 16, 768]               0
-               Dropout-4               [1, 17, 768]               0
-             LayerNorm-5               [1, 17, 768]           1,536
-                Linear-6              [1, 17, 2304]       1,771,776
-               Dropout-7            [1, 12, 17, 17]               0
-                Linear-8               [1, 17, 768]         590,592
-               Dropout-9               [1, 17, 768]               0
-            Attention-10               [1, 17, 768]               0
-             Identity-11               [1, 17, 768]               0
-            LayerNorm-12               [1, 17, 768]           1,536
-               Linear-13              [1, 17, 3072]       2,362,368
-                 GELU-14              [1, 17, 3072]               0
-              Dropout-15              [1, 17, 3072]               0
-               Linear-16               [1, 17, 768]       2,360,064
-              Dropout-17               [1, 17, 768]               0
-                  Mlp-18               [1, 17, 768]               0
-             Identity-19               [1, 17, 768]               0
-                Block-20               [1, 17, 768]               0
-            LayerNorm-21               [1, 17, 768]           1,536
-               Linear-22              [1, 17, 2304]       1,771,776
-              Dropout-23            [1, 12, 17, 17]               0
-               Linear-24               [1, 17, 768]         590,592
-              Dropout-25               [1, 17, 768]               0
-            Attention-26               [1, 17, 768]               0
-             Identity-27               [1, 17, 768]               0
-            LayerNorm-28               [1, 17, 768]           1,536
-               Linear-29              [1, 17, 3072]       2,362,368
-                 GELU-30              [1, 17, 3072]               0
-              Dropout-31              [1, 17, 3072]               0
-               Linear-32               [1, 17, 768]       2,360,064
-              Dropout-33               [1, 17, 768]               0
-                  Mlp-34               [1, 17, 768]               0
-             Identity-35               [1, 17, 768]               0
-                Block-36               [1, 17, 768]               0
-            LayerNorm-37               [1, 17, 768]           1,536
-               Linear-38              [1, 17, 2304]       1,771,776
-              Dropout-39            [1, 12, 17, 17]               0
-               Linear-40               [1, 17, 768]         590,592
-              Dropout-41               [1, 17, 768]               0
-            Attention-42               [1, 17, 768]               0
-             Identity-43               [1, 17, 768]               0
-            LayerNorm-44               [1, 17, 768]           1,536
-               Linear-45              [1, 17, 3072]       2,362,368
-                 GELU-46              [1, 17, 3072]               0
-              Dropout-47              [1, 17, 3072]               0
-               Linear-48               [1, 17, 768]       2,360,064
-              Dropout-49               [1, 17, 768]               0
-                  Mlp-50               [1, 17, 768]               0
-             Identity-51               [1, 17, 768]               0
-                Block-52               [1, 17, 768]               0
-            LayerNorm-53               [1, 17, 768]           1,536
-               Linear-54              [1, 17, 2304]       1,771,776
-              Dropout-55            [1, 12, 17, 17]               0
-               Linear-56               [1, 17, 768]         590,592
-              Dropout-57               [1, 17, 768]               0
-            Attention-58               [1, 17, 768]               0
-             Identity-59               [1, 17, 768]               0
-            LayerNorm-60               [1, 17, 768]           1,536
-               Linear-61              [1, 17, 3072]       2,362,368
-                 GELU-62              [1, 17, 3072]               0
-              Dropout-63              [1, 17, 3072]               0
-               Linear-64               [1, 17, 768]       2,360,064
-              Dropout-65               [1, 17, 768]               0
-                  Mlp-66               [1, 17, 768]               0
-             Identity-67               [1, 17, 768]               0
-                Block-68               [1, 17, 768]               0
-            LayerNorm-69               [1, 17, 768]           1,536
-               Linear-70              [1, 17, 2304]       1,771,776
-              Dropout-71            [1, 12, 17, 17]               0
-               Linear-72               [1, 17, 768]         590,592
-              Dropout-73               [1, 17, 768]               0
-            Attention-74               [1, 17, 768]               0
-             Identity-75               [1, 17, 768]               0
-            LayerNorm-76               [1, 17, 768]           1,536
-               Linear-77              [1, 17, 3072]       2,362,368
-                 GELU-78              [1, 17, 3072]               0
-              Dropout-79              [1, 17, 3072]               0
-               Linear-80               [1, 17, 768]       2,360,064
-              Dropout-81               [1, 17, 768]               0
-                  Mlp-82               [1, 17, 768]               0
-             Identity-83               [1, 17, 768]               0
-                Block-84               [1, 17, 768]               0
-            LayerNorm-85               [1, 17, 768]           1,536
-               Linear-86              [1, 17, 2304]       1,771,776
-              Dropout-87            [1, 12, 17, 17]               0
-               Linear-88               [1, 17, 768]         590,592
-              Dropout-89               [1, 17, 768]               0
-            Attention-90               [1, 17, 768]               0
-             Identity-91               [1, 17, 768]               0
-            LayerNorm-92               [1, 17, 768]           1,536
-               Linear-93              [1, 17, 3072]       2,362,368
-                 GELU-94              [1, 17, 3072]               0
-              Dropout-95              [1, 17, 3072]               0
-               Linear-96               [1, 17, 768]       2,360,064
-              Dropout-97               [1, 17, 768]               0
-                  Mlp-98               [1, 17, 768]               0
-             Identity-99               [1, 17, 768]               0
-               Block-100               [1, 17, 768]               0
-           LayerNorm-101               [1, 17, 768]           1,536
-              Linear-102              [1, 17, 2304]       1,771,776
-             Dropout-103            [1, 12, 17, 17]               0
-              Linear-104               [1, 17, 768]         590,592
-             Dropout-105               [1, 17, 768]               0
-           Attention-106               [1, 17, 768]               0
-            Identity-107               [1, 17, 768]               0
-           LayerNorm-108               [1, 17, 768]           1,536
-              Linear-109              [1, 17, 3072]       2,362,368
-                GELU-110              [1, 17, 3072]               0
-             Dropout-111              [1, 17, 3072]               0
-              Linear-112               [1, 17, 768]       2,360,064
-             Dropout-113               [1, 17, 768]               0
-                 Mlp-114               [1, 17, 768]               0
-            Identity-115               [1, 17, 768]               0
-               Block-116               [1, 17, 768]               0
-           LayerNorm-117               [1, 17, 768]           1,536
-              Linear-118              [1, 17, 2304]       1,771,776
-             Dropout-119            [1, 12, 17, 17]               0
-              Linear-120               [1, 17, 768]         590,592
-             Dropout-121               [1, 17, 768]               0
-           Attention-122               [1, 17, 768]               0
-            Identity-123               [1, 17, 768]               0
-           LayerNorm-124               [1, 17, 768]           1,536
-              Linear-125              [1, 17, 3072]       2,362,368
-                GELU-126              [1, 17, 3072]               0
-             Dropout-127              [1, 17, 3072]               0
-              Linear-128               [1, 17, 768]       2,360,064
-             Dropout-129               [1, 17, 768]               0
-                 Mlp-130               [1, 17, 768]               0
-            Identity-131               [1, 17, 768]               0
-               Block-132               [1, 17, 768]               0
-           LayerNorm-133               [1, 17, 768]           1,536
-              Linear-134              [1, 17, 2304]       1,771,776
-             Dropout-135            [1, 12, 17, 17]               0
-              Linear-136               [1, 17, 768]         590,592
-             Dropout-137               [1, 17, 768]               0
-           Attention-138               [1, 17, 768]               0
-            Identity-139               [1, 17, 768]               0
-           LayerNorm-140               [1, 17, 768]           1,536
-              Linear-141              [1, 17, 3072]       2,362,368
-                GELU-142              [1, 17, 3072]               0
-             Dropout-143              [1, 17, 3072]               0
-              Linear-144               [1, 17, 768]       2,360,064
-             Dropout-145               [1, 17, 768]               0
-                 Mlp-146               [1, 17, 768]               0
-            Identity-147               [1, 17, 768]               0
-               Block-148               [1, 17, 768]               0
-           LayerNorm-149               [1, 17, 768]           1,536
-              Linear-150              [1, 17, 2304]       1,771,776
-             Dropout-151            [1, 12, 17, 17]               0
-              Linear-152               [1, 17, 768]         590,592
-             Dropout-153               [1, 17, 768]               0
-           Attention-154               [1, 17, 768]               0
-            Identity-155               [1, 17, 768]               0
-           LayerNorm-156               [1, 17, 768]           1,536
-              Linear-157              [1, 17, 3072]       2,362,368
-                GELU-158              [1, 17, 3072]               0
-             Dropout-159              [1, 17, 3072]               0
-              Linear-160               [1, 17, 768]       2,360,064
-             Dropout-161               [1, 17, 768]               0
-                 Mlp-162               [1, 17, 768]               0
-            Identity-163               [1, 17, 768]               0
-               Block-164               [1, 17, 768]               0
-           LayerNorm-165               [1, 17, 768]           1,536
-              Linear-166              [1, 17, 2304]       1,771,776
-             Dropout-167            [1, 12, 17, 17]               0
-              Linear-168               [1, 17, 768]         590,592
-             Dropout-169               [1, 17, 768]               0
-           Attention-170               [1, 17, 768]               0
-            Identity-171               [1, 17, 768]               0
-           LayerNorm-172               [1, 17, 768]           1,536
-              Linear-173              [1, 17, 3072]       2,362,368
-                GELU-174              [1, 17, 3072]               0
-             Dropout-175              [1, 17, 3072]               0
-              Linear-176               [1, 17, 768]       2,360,064
-             Dropout-177               [1, 17, 768]               0
-                 Mlp-178               [1, 17, 768]               0
-            Identity-179               [1, 17, 768]               0
-               Block-180               [1, 17, 768]               0
-           LayerNorm-181               [1, 17, 768]           1,536
-              Linear-182              [1, 17, 2304]       1,771,776
-             Dropout-183            [1, 12, 17, 17]               0
-              Linear-184               [1, 17, 768]         590,592
-             Dropout-185               [1, 17, 768]               0
-           Attention-186               [1, 17, 768]               0
-            Identity-187               [1, 17, 768]               0
-           LayerNorm-188               [1, 17, 768]           1,536
-              Linear-189              [1, 17, 3072]       2,362,368
-                GELU-190              [1, 17, 3072]               0
-             Dropout-191              [1, 17, 3072]               0
-              Linear-192               [1, 17, 768]       2,360,064
-             Dropout-193               [1, 17, 768]               0
-                 Mlp-194               [1, 17, 768]               0
-            Identity-195               [1, 17, 768]               0
-               Block-196               [1, 17, 768]               0
-           LayerNorm-197               [1, 17, 768]           1,536
-            Identity-198                   [1, 768]               0
-              Linear-199                  [1, 1000]         769,000
+            Conv2d-1             [1, 768, 4, 4]       9,437,952
+          Identity-2               [1, 16, 768]               0
+        PatchEmbed-3               [1, 16, 768]               0
+           Dropout-4               [1, 17, 768]               0
+         LayerNorm-5               [1, 17, 768]           1,536
+            Linear-6              [1, 17, 2304]       1,771,776
+           Dropout-7            [1, 12, 17, 17]               0
+            Linear-8               [1, 17, 768]         590,592
+           Dropout-9               [1, 17, 768]               0
+        Attention-10               [1, 17, 768]               0
+         Identity-11               [1, 17, 768]               0
+        LayerNorm-12               [1, 17, 768]           1,536
+           Linear-13              [1, 17, 3072]       2,362,368
+             GELU-14              [1, 17, 3072]               0
+          Dropout-15              [1, 17, 3072]               0
+           Linear-16               [1, 17, 768]       2,360,064
+          Dropout-17               [1, 17, 768]               0
+              Mlp-18               [1, 17, 768]               0
+         Identity-19               [1, 17, 768]               0
+            Block-20               [1, 17, 768]               0
+        LayerNorm-21               [1, 17, 768]           1,536
+           Linear-22              [1, 17, 2304]       1,771,776
+          Dropout-23            [1, 12, 17, 17]               0
+           Linear-24               [1, 17, 768]         590,592
+          Dropout-25               [1, 17, 768]               0
+        Attention-26               [1, 17, 768]               0
+         Identity-27               [1, 17, 768]               0
+        LayerNorm-28               [1, 17, 768]           1,536
+           Linear-29              [1, 17, 3072]       2,362,368
+             GELU-30              [1, 17, 3072]               0
+          Dropout-31              [1, 17, 3072]               0
+           Linear-32               [1, 17, 768]       2,360,064
+          Dropout-33               [1, 17, 768]               0
+              Mlp-34               [1, 17, 768]               0
+         Identity-35               [1, 17, 768]               0
+            Block-36               [1, 17, 768]               0
+        LayerNorm-37               [1, 17, 768]           1,536
+           Linear-38              [1, 17, 2304]       1,771,776
+          Dropout-39            [1, 12, 17, 17]               0
+           Linear-40               [1, 17, 768]         590,592
+          Dropout-41               [1, 17, 768]               0
+        Attention-42               [1, 17, 768]               0
+         Identity-43               [1, 17, 768]               0
+        LayerNorm-44               [1, 17, 768]           1,536
+           Linear-45              [1, 17, 3072]       2,362,368
+             GELU-46              [1, 17, 3072]               0
+          Dropout-47              [1, 17, 3072]               0
+           Linear-48               [1, 17, 768]       2,360,064
+          Dropout-49               [1, 17, 768]               0
+              Mlp-50               [1, 17, 768]               0
+         Identity-51               [1, 17, 768]               0
+            Block-52               [1, 17, 768]               0
+        LayerNorm-53               [1, 17, 768]           1,536
+           Linear-54              [1, 17, 2304]       1,771,776
+          Dropout-55            [1, 12, 17, 17]               0
+           Linear-56               [1, 17, 768]         590,592
+          Dropout-57               [1, 17, 768]               0
+        Attention-58               [1, 17, 768]               0
+         Identity-59               [1, 17, 768]               0
+        LayerNorm-60               [1, 17, 768]           1,536
+           Linear-61              [1, 17, 3072]       2,362,368
+             GELU-62              [1, 17, 3072]               0
+          Dropout-63              [1, 17, 3072]               0
+           Linear-64               [1, 17, 768]       2,360,064
+          Dropout-65               [1, 17, 768]               0
+              Mlp-66               [1, 17, 768]               0
+         Identity-67               [1, 17, 768]               0
+            Block-68               [1, 17, 768]               0
+        LayerNorm-69               [1, 17, 768]           1,536
+           Linear-70              [1, 17, 2304]       1,771,776
+          Dropout-71            [1, 12, 17, 17]               0
+           Linear-72               [1, 17, 768]         590,592
+          Dropout-73               [1, 17, 768]               0
+        Attention-74               [1, 17, 768]               0
+         Identity-75               [1, 17, 768]               0
+        LayerNorm-76               [1, 17, 768]           1,536
+           Linear-77              [1, 17, 3072]       2,362,368
+             GELU-78              [1, 17, 3072]               0
+          Dropout-79              [1, 17, 3072]               0
+           Linear-80               [1, 17, 768]       2,360,064
+          Dropout-81               [1, 17, 768]               0
+              Mlp-82               [1, 17, 768]               0
+         Identity-83               [1, 17, 768]               0
+            Block-84               [1, 17, 768]               0
+        LayerNorm-85               [1, 17, 768]           1,536
+           Linear-86              [1, 17, 2304]       1,771,776
+          Dropout-87            [1, 12, 17, 17]               0
+           Linear-88               [1, 17, 768]         590,592
+          Dropout-89               [1, 17, 768]               0
+        Attention-90               [1, 17, 768]               0
+         Identity-91               [1, 17, 768]               0
+        LayerNorm-92               [1, 17, 768]           1,536
+           Linear-93              [1, 17, 3072]       2,362,368
+             GELU-94              [1, 17, 3072]               0
+          Dropout-95              [1, 17, 3072]               0
+           Linear-96               [1, 17, 768]       2,360,064
+          Dropout-97               [1, 17, 768]               0
+              Mlp-98               [1, 17, 768]               0
+         Identity-99               [1, 17, 768]               0
+           Block-100               [1, 17, 768]               0
+       LayerNorm-101               [1, 17, 768]           1,536
+          Linear-102              [1, 17, 2304]       1,771,776
+         Dropout-103            [1, 12, 17, 17]               0
+          Linear-104               [1, 17, 768]         590,592
+         Dropout-105               [1, 17, 768]               0
+       Attention-106               [1, 17, 768]               0
+        Identity-107               [1, 17, 768]               0
+       LayerNorm-108               [1, 17, 768]           1,536
+          Linear-109              [1, 17, 3072]       2,362,368
+            GELU-110              [1, 17, 3072]               0
+         Dropout-111              [1, 17, 3072]               0
+          Linear-112               [1, 17, 768]       2,360,064
+         Dropout-113               [1, 17, 768]               0
+             Mlp-114               [1, 17, 768]               0
+        Identity-115               [1, 17, 768]               0
+           Block-116               [1, 17, 768]               0
+       LayerNorm-117               [1, 17, 768]           1,536
+          Linear-118              [1, 17, 2304]       1,771,776
+         Dropout-119            [1, 12, 17, 17]               0
+          Linear-120               [1, 17, 768]         590,592
+         Dropout-121               [1, 17, 768]               0
+       Attention-122               [1, 17, 768]               0
+        Identity-123               [1, 17, 768]               0
+       LayerNorm-124               [1, 17, 768]           1,536
+          Linear-125              [1, 17, 3072]       2,362,368
+            GELU-126              [1, 17, 3072]               0
+         Dropout-127              [1, 17, 3072]               0
+          Linear-128               [1, 17, 768]       2,360,064
+         Dropout-129               [1, 17, 768]               0
+             Mlp-130               [1, 17, 768]               0
+        Identity-131               [1, 17, 768]               0
+           Block-132               [1, 17, 768]               0
+       LayerNorm-133               [1, 17, 768]           1,536
+          Linear-134              [1, 17, 2304]       1,771,776
+         Dropout-135            [1, 12, 17, 17]               0
+          Linear-136               [1, 17, 768]         590,592
+         Dropout-137               [1, 17, 768]               0
+       Attention-138               [1, 17, 768]               0
+        Identity-139               [1, 17, 768]               0
+       LayerNorm-140               [1, 17, 768]           1,536
+          Linear-141              [1, 17, 3072]       2,362,368
+            GELU-142              [1, 17, 3072]               0
+         Dropout-143              [1, 17, 3072]               0
+          Linear-144               [1, 17, 768]       2,360,064
+         Dropout-145               [1, 17, 768]               0
+             Mlp-146               [1, 17, 768]               0
+        Identity-147               [1, 17, 768]               0
+           Block-148               [1, 17, 768]               0
+       LayerNorm-149               [1, 17, 768]           1,536
+          Linear-150              [1, 17, 2304]       1,771,776
+         Dropout-151            [1, 12, 17, 17]               0
+          Linear-152               [1, 17, 768]         590,592
+         Dropout-153               [1, 17, 768]               0
+       Attention-154               [1, 17, 768]               0
+        Identity-155               [1, 17, 768]               0
+       LayerNorm-156               [1, 17, 768]           1,536
+          Linear-157              [1, 17, 3072]       2,362,368
+            GELU-158              [1, 17, 3072]               0
+         Dropout-159              [1, 17, 3072]               0
+          Linear-160               [1, 17, 768]       2,360,064
+         Dropout-161               [1, 17, 768]               0
+             Mlp-162               [1, 17, 768]               0
+        Identity-163               [1, 17, 768]               0
+           Block-164               [1, 17, 768]               0
+       LayerNorm-165               [1, 17, 768]           1,536
+          Linear-166              [1, 17, 2304]       1,771,776
+         Dropout-167            [1, 12, 17, 17]               0
+          Linear-168               [1, 17, 768]         590,592
+         Dropout-169               [1, 17, 768]               0
+       Attention-170               [1, 17, 768]               0
+        Identity-171               [1, 17, 768]               0
+       LayerNorm-172               [1, 17, 768]           1,536
+          Linear-173              [1, 17, 3072]       2,362,368
+            GELU-174              [1, 17, 3072]               0
+         Dropout-175              [1, 17, 3072]               0
+          Linear-176               [1, 17, 768]       2,360,064
+         Dropout-177               [1, 17, 768]               0
+             Mlp-178               [1, 17, 768]               0
+        Identity-179               [1, 17, 768]               0
+           Block-180               [1, 17, 768]               0
+       LayerNorm-181               [1, 17, 768]           1,536
+          Linear-182              [1, 17, 2304]       1,771,776
+         Dropout-183            [1, 12, 17, 17]               0
+          Linear-184               [1, 17, 768]         590,592
+         Dropout-185               [1, 17, 768]               0
+       Attention-186               [1, 17, 768]               0
+        Identity-187               [1, 17, 768]               0
+       LayerNorm-188               [1, 17, 768]           1,536
+          Linear-189              [1, 17, 3072]       2,362,368
+            GELU-190              [1, 17, 3072]               0
+         Dropout-191              [1, 17, 3072]               0
+          Linear-192               [1, 17, 768]       2,360,064
+         Dropout-193               [1, 17, 768]               0
+             Mlp-194               [1, 17, 768]               0
+        Identity-195               [1, 17, 768]               0
+           Block-196               [1, 17, 768]               0
+       LayerNorm-197               [1, 17, 768]           1,536
+        Identity-198                   [1, 768]               0
+          Linear-199                   [1, 512]         393,728
     ================================================================
-    Total params: 95,262,952
-    Trainable params: 95,262,952
+    Total params: 94,887,680
+    Trainable params: 94,887,680
     Non-trainable params: 0
     ----------------------------------------------------------------
     Input size (MB): 0.75
     Forward/backward pass size (MB): 31.89
-    Params size (MB): 363.40
-    Estimated Total Size (MB): 396.04
+    Params size (MB): 361.97
+    Estimated Total Size (MB): 394.60
     ----------------------------------------------------------------
-    Process finished with exit code 0
-
     """
 
 
@@ -988,7 +986,7 @@ if __name__ == '__main__':
     # summary_4_patch_embed()
     # summary_4_block()
     # summary_4_mlp()
-    # summary_4_vit_for_image_composite()
+    summary_4_vit_for_image_composite()
     
     """
     3670 images were found in the dataset.
